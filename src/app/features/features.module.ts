@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { AuthorsComponent } from './components/authors/authors.component';
 import { FavoriteAuthorsComponent } from './components/favorite-authors/favorite-authors.component';
 import { SharedModule } from '../shared/shared.module';
+import { NgxPaginationModule } from 'ngx-pagination';
 
 
 
@@ -14,10 +15,12 @@ import { SharedModule } from '../shared/shared.module';
   exports: [
     AuthorsComponent,
     FavoriteAuthorsComponent,
+    
   ],
   imports: [
     CommonModule,
-    SharedModule
+    SharedModule,
+    NgxPaginationModule
   ]
 })
 export class FeaturesModule { }

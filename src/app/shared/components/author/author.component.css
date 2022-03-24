@@ -3,6 +3,7 @@
     transition: 0.3s;
     width: 100%;
     cursor: pointer;
+    min-height: 15rem;
 }
 
 .card:hover {
@@ -13,10 +14,34 @@
     padding: 2px 16px 10px 16px;
 }
 
+.btn-title-container {
+    display: flex;
+    display: flex;
+    justify-content: space-around;
+    height: 50px;
+    align-items: center;
+}
+
+.button-container button {
+    color: #fff;
+}
+
+.add-btn {
+    background: green;
+    margin-right: 10px;
+}
+
+.remove-btn {
+    background: black;
+}
+
 .link-btn {
-    font-weight: 400;
     color: #007bff;
     background-color: transparent;
+}
+
+.btn {
+    font-weight: 400;
     display: inline-block;
     font-weight: 400;
     text-align: center;
@@ -33,4 +58,5 @@
     border-radius: 0.25rem;
     transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out,
         box-shadow 0.15s ease-in-out;
+        cursor: pointer;
 }

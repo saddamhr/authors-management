@@ -1,11 +1,17 @@
 <div class="authors-container">
-    <app-author></app-author>
-    <app-author></app-author>
-    <app-author></app-author>
-    <app-author></app-author>
-    <app-author></app-author>
-    <app-author></app-author>
-    <app-author></app-author>
-    <app-author></app-author>
-    <app-author></app-author>
+  <span
+    *ngFor="
+      let author of authors
+        | paginate: { itemsPerPage: 10, currentPage: p, totalItems: total }
+    "
+  >
+    <app-author [author]="author"></app-author>
+  </span>
+</div>
+<div style="text-align: center">
+  <div style="display: inline-block">
+    <pagination-controls
+      (pageChange)="pageChangeEvent($event)"
+    ></pagination-controls>
+  </div>
 </div>

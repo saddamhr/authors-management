@@ -1,15 +1,21 @@
 <div class="card">
-  <!-- <img src="img_avatar.png" alt="Avatar" style="width: 100%" /> -->
   <div class="container">
-    <h4><b>Alexandre Dumas</b></h4>
-    <p>
-      Alexandre Dumas (24 July 1802 – 5 December 1870), also known as Alexandre
-      Dumas père (French for 'father'), was a French writer. His works have been
-      translated into many languages, and he is one of the most widely read
-      French authors.
+    <div class="btn-title-container">
+      <h4>
+        <b>{{ author.name }}</b>
+      </h4>
+      <div class="button-container">
+        <button class="btn add-btn">Add Favt</button>
+        <button class="btn remove-btn">Remove Favt</button>
+      </div>
+    </div>
+
+    <p style="word-break: break-word">
+      <!-- {{ (author.bio | slice: 0:400) + "....." }} -->
+      {{author.bio}}
     </p>
-    <div style="text-align: center;">
-      <a class="link-btn" target="_blank" href="https://en.wikipedia.org/wiki/Alexandre_Dumas">Link</a>
+    <div style="text-align: center">
+      <a class="btn link-btn" target="_blank" href="{{ author.link }}">Link</a>
     </div>
   </div>
 </div>

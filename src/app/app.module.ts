@@ -1,3 +1,4 @@
+import { CoreModule } from './core/core.module';
 import { FeaturesModule } from './features/features.module';
 import { BlockModule } from './block/block.module';
 import { NgModule } from '@angular/core';
@@ -10,11 +11,12 @@ import { AppComponent } from './app.component';
   declarations: [
     AppComponent
   ],
-  imports: [
+imports: [
     BrowserModule,
     AppRoutingModule,
     BlockModule,
-    FeaturesModule
+    FeaturesModule,
+    CoreModule
   ],
   providers: [],
   bootstrap: [AppComponent]
