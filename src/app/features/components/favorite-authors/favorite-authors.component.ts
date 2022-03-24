@@ -1,3 +1,5 @@
+import { DataStoreService } from './../../../core/services/data-store.service';
+import { Author } from './../../../core/model/author.model';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -6,10 +8,12 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./favorite-authors.component.css']
 })
 export class FavoriteAuthorsComponent implements OnInit {
+  favoriteAuthors: Author[] = [];
 
-  constructor() { }
+  constructor(private dataStoreService:DataStoreService) { }
 
   ngOnInit(): void {
+    this.favoriteAuthors =  this.dataStoreService.getCart()
   }
 
 }

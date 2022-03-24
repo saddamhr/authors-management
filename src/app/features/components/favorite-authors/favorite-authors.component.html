@@ -1,1 +1,5 @@
-<div>Favorite Author</div>
+<div class="authors-container">
+  <span *ngFor="let favoriteAuthor of favoriteAuthors">
+    <app-author [author]="favoriteAuthor"></app-author>
+  </span>
+</div>

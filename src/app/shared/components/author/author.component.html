@@ -5,8 +5,8 @@
         <b>{{ author.name }}</b>
       </h4>
       <div class="button-container">
-        <button class="btn add-btn">Add Favt</button>
-        <button class="btn remove-btn">Remove Favt</button>
+        <button (click)="handleFavoriteAuthorAdd(author)" class="btn add-btn">Add Favt</button>
+        <button (click)="handleFavoriteAuthorRemove(author._id)" class="btn remove-btn">Remove Favt</button>
       </div>
     </div>
 
