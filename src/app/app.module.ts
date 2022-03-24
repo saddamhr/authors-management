@@ -1,3 +1,5 @@
+import { FeaturesModule } from './features/features.module';
+import { BlockModule } from './block/block.module';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
@@ -10,7 +12,9 @@ import { AppComponent } from './app.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    BlockModule,
+    FeaturesModule
   ],
   providers: [],
   bootstrap: [AppComponent]
