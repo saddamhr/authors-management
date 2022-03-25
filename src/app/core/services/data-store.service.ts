@@ -59,8 +59,8 @@ export class DataStoreService {
 
   // SERVICE METHOD: to remove a author from local storage
   removeAuthor(authorId: string) {
-    const items = JSON.parse(localStorage.getItem('authors')!);
-    const filtered = items.filter((item: any) => item._id !== authorId);
-    localStorage.setItem('authors', JSON.stringify(filtered));
+    const localStorageAuthors = JSON.parse(localStorage.getItem('authors')!);
+    const filteredAuthors = localStorageAuthors.filter((item: any) => item._id !== authorId);
+    localStorage.setItem('authors', JSON.stringify(filteredAuthors));
   }
 }

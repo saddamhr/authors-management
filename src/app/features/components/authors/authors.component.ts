@@ -19,7 +19,7 @@ export class AuthorsComponent implements OnInit {
     private _snackbarService: SnackbarService
   ) {}
   ngOnInit(): void {
-    // inital call 
+    // initial call 
     this.getAuthors(0);
   }
 

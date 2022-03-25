@@ -16,7 +16,7 @@ export class AuthorService {
 
   // SERVICE METHOD: to fetch all author from backend server
   fetchAuthors(limit: number, skip: number) {
-    let url = `${this.baseUrl}${ApiPaths.AUTHORS}?/limit=${limit}&skip=${skip}`;
+    let url = `${this.baseUrl}${ApiPaths.AUTHORS}?limit=${limit}&skip=${skip}`;
     return this.http.get<Data>(url).pipe(
       retry(1),
       catchError((err) => {
