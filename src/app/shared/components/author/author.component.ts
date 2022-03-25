@@ -29,6 +29,7 @@ export class AuthorComponent implements OnInit {
   // METHOD: this method will call when user click in the 'Remove Favt' button 
   handleFavoriteAuthorRemove(author: Author) {
     this._dataStoreService.removeAuthor(author._id);
+    // EVENT EMITTER: emit event for update storage immediately
     this.favoriteAuthorRemoveEvent.emit();
     this._snackbarService.success(
       `Author ${author.name} successfully removed!`,

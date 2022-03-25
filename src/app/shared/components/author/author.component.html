@@ -1,27 +1,6 @@
-<!-- <div class="card">
-  <div class="container">
-    <div class="btn-title-container">
-      <h4>
-        <b>{{ author.name }}</b>
-      </h4>
-      <div class="button-container">
-        <button *ngIf="component === 'auth'" (click)="handleFavoriteAuthorAdd(author)" class="btn add-btn">Add Favt</button>
-        <button (click)="handleFavoriteAuthorRemove(author)" class="btn remove-btn">Remove Favt</button>
-      </div>
-    </div>
-
-    <p style="word-break: break-word">
-      {{author.bio}}
-    </p>
-    <div style="text-align: center">
-      <a class="btn link-btn" target="_blank" href="{{ author.link }}">Link</a>
-    </div>
-  </div>
-</div> -->
-
 <mat-card class="author-card">
-  <div style="display: flex; justify-content: space-between">
-    <mat-card-title style="margin: 0; margin-top: 8px">{{
+  <div class="title-btn-container">
+    <mat-card-title class="author-name">{{
       author.name
     }}</mat-card-title>
     <button
@@ -32,13 +11,14 @@
     Add Favt
   </button>
   </div>
-  <mat-card-content style="margin-top: 20px; height: 8.5rem">
+  <mat-card-content class="author-bio">
     <p>{{ author.bio }}</p>
   </mat-card-content>
-  <mat-card-actions style="display: flex; justify-content: space-between">
+  <mat-card-actions class="title-btn-container">
     <button
       (click)="handleFavoriteAuthorRemove(author)"
       class="btn btn-danger"
+      *ngIf="component === 'fav-auth'"
     >
       Remove Favt
     </button>

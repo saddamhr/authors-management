@@ -1,5 +1,5 @@
 .title-container {
-  background-color: #181E46;
+  background-color: #181e46;
   color: #fff;
   text-align: center;
   position: fixed;
@@ -18,5 +18,5 @@
 .content-container {
   margin-left: 200px;
   padding: 10px 16px;
-  height: 1000px;
+  height: 100vh;
 }

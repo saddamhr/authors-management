@@ -16,7 +16,6 @@ export class SnackbarService {
   constructor(private _snackBar: MatSnackBar, private zone: NgZone) {}
 
   // SERVICE METHOD: to raise success snackbar
-  // success(message: string, type:string) {
   success(message: string, type:string) {
     this._snackBar.open(message, 'Splash', {
       horizontalPosition: this.horizontalPosition,

@@ -12,6 +12,7 @@ export class FavoriteAuthorsComponent implements OnInit {
 
   constructor(private dataStoreService: DataStoreService) {}
 
+  // METHOD: get favorite authors form local storage 
   getAuthorsFromLocalStorage() {
     this.favoriteAuthors = this.dataStoreService.getAuthors();
   }
@@ -19,6 +20,8 @@ export class FavoriteAuthorsComponent implements OnInit {
   ngOnInit(): void {
     this.getAuthorsFromLocalStorage();
   }
+
+  // METHOD: after remove author get updated storage 
   handleFavoriteAuthorRemove() {
     this.getAuthorsFromLocalStorage();
   }

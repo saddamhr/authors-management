@@ -23,7 +23,7 @@ export class AuthorsComponent implements OnInit {
     this.getAuthors(0);
   }
 
-  // get authors 
+  // METHOD: get authors 
   getAuthors(page: number) {
     const skip = page === 0 ? 0 : (page - 1) * 10;
     this._authorService.fetchAuthors(10, skip).subscribe(
@@ -43,7 +43,7 @@ export class AuthorsComponent implements OnInit {
     );
   }
 
-  // pagination page change 
+  // METHOD: pagination page change event call
   pageChangeEvent(event: number) {
     console.log(event);
     this.p = event;

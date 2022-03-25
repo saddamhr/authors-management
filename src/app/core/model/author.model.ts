@@ -1,3 +1,4 @@
+// MODEL: Author
 export interface Author {
   link: string;
   bio: string;
@@ -10,12 +11,12 @@ export interface Author {
   dateModified: string;
 }
 
-
+// MODEL: Data
 export interface Data {
   count: number;
   lastItemIndex: number;
   page: number;
-  results: Author[]
+  results: Author[];
   totalCount: number;
   totalPages: number;
 }
