@@ -5,13 +5,12 @@
         <b>{{ author.name }}</b>
       </h4>
       <div class="button-container">
-        <button (click)="handleFavoriteAuthorAdd(author)" class="btn add-btn">Add Favt</button>
-        <button (click)="handleFavoriteAuthorRemove(author._id)" class="btn remove-btn">Remove Favt</button>
+        <button *ngIf="component === 'auth'" (click)="handleFavoriteAuthorAdd(author)" class="btn add-btn">Add Favt</button>
+        <button (click)="handleFavoriteAuthorRemove(author)" class="btn remove-btn">Remove Favt</button>
       </div>
     </div>
 
     <p style="word-break: break-word">
-      <!-- {{ (author.bio | slice: 0:400) + "....." }} -->
       {{author.bio}}
     </p>
     <div style="text-align: center">

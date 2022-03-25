@@ -17,11 +17,11 @@ export class SnackbarService {
 
   // SERVICE METHOD: to raise success snackbar
   // success(message: string, type:string) {
-  success(message: string) {
+  success(message: string, type:string) {
     this._snackBar.open(message, 'Splash', {
       horizontalPosition: this.horizontalPosition,
       verticalPosition: this.verticalPosition,
-      duration: 5000, panelClass: ['red-snackbar'],
+      duration: 5000, panelClass: [type],
     });
   }
 }

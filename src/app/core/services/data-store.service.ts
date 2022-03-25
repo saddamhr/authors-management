@@ -1,7 +1,6 @@
 import { SnackbarService } from './snackbar.service';
 import { Author } from './../model/author.model';
 import { Injectable } from '@angular/core';
-import { BehaviorSubject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
@@ -36,7 +35,7 @@ export class DataStoreService {
     for (j = 0; j < this.authorFromLocalStorage.length; j++) {
       if (author._id === this.authorFromLocalStorage[j]._id) {
         this._snackbarService.success(
-          `Author ${author.name} already added to the favorite list! `
+          `Author ${author.name} already added to the favorite list! `, 'warning-snackbar'
         );
         break;
       } else {
@@ -45,6 +44,7 @@ export class DataStoreService {
     }
 
     if (j === this.authorFromLocalStorage.length) {
+      this._snackbarService.success(`Author ${author.name} Successfully added`, 'black-snackbar');
       this.authorFromLocalStorage.push(author);
     }
 
@@ -52,6 +52,9 @@ export class DataStoreService {
       'authors',
       JSON.stringify(this.authorFromLocalStorage)
     );
+
+
+
   }
 
   // SERVICE METHOD: to remove a author from local storage

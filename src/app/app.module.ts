@@ -20,18 +20,14 @@ import { CoreModule } from './core/core.module';
     FormsModule,
     HttpClientModule,
     MatNativeDateModule,
-    MaterialExampleModule,
     ReactiveFormsModule,
-    BrowserModule,
     MaterialExampleModule,
     AppRoutingModule,
     BlockModule,
     FeaturesModule,
-    CoreModule,
-
+    CoreModule
   ],
   providers: [],
   bootstrap: [AppComponent],
-  // bootstrap: [SnackBarPositionExample],
 })
 export class AppModule {}

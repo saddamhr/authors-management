@@ -1,5 +1,15 @@
 <div class="favorite-authors-container">
   <span *ngFor="let favoriteAuthor of favoriteAuthors">
-    <app-author [author]="favoriteAuthor" (favoriteAuthorRemoveEvent)="handleFavoriteAuthorRemove()"></app-author>
+    <app-author
+      [author]="favoriteAuthor"
+      [component]="'fav-auth'"
+      (favoriteAuthorRemoveEvent)="handleFavoriteAuthorRemove()"
+    ></app-author>
   </span>
+</div>
+<div style="margin-top: -50px;">
+  <div *ngIf="favoriteAuthors.length === 0" class="alert">
+    Favorite author list is empty! Please add some from
+    <a [routerLink]="['']">Author</a>
+  </div>
 </div>

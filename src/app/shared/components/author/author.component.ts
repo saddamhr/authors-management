@@ -2,11 +2,6 @@ import { SnackbarService } from './../../../core/services/snackbar.service';
 import { DataStoreService } from './../../../core/services/data-store.service';
 import { Author } from './../../../core/model/author.model';
 import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
-import {
-  MatSnackBar,
-  MatSnackBarHorizontalPosition,
-  MatSnackBarVerticalPosition,
-} from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-author',
@@ -14,8 +9,9 @@ import {
   styleUrls: ['./author.component.css'],
 })
 export class AuthorComponent implements OnInit {
-  // @Input() a: Author[]
   @Input() author: any;
+  @Input() component: string;
+
   @Output() favoriteAuthorRemoveEvent = new EventEmitter();
 
   constructor(
@@ -24,14 +20,19 @@ export class AuthorComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {}
-
+  
+  // METHOD: this method will call when user click in the 'Add Favt' button 
   handleFavoriteAuthorAdd(author: Author) {
     this._dataStoreService.addFavoriteAuthors(author);
-    this._snackbarService.success('Author Successfully added');
   }
-  handleFavoriteAuthorRemove(authorId: string) {
-    this._dataStoreService.removeAuthor(authorId);
+
+  // METHOD: this method will call when user click in the 'Remove Favt' button 
+  handleFavoriteAuthorRemove(author: Author) {
+    this._dataStoreService.removeAuthor(author._id);
     this.favoriteAuthorRemoveEvent.emit();
-    this._snackbarService.success('Successfully removed author!');
+    this._snackbarService.success(
+      `Author ${author.name} successfully removed!`,
+      'red-snackbar'
+    );
   }
 }

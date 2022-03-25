@@ -1,11 +1,15 @@
 <div class="authors-container">
+  <span *ngIf="loading">
+    Loading...
+    <!-- <mat-spinner></mat-spinner> -->
+  </span>
   <span
     *ngFor="
       let author of authors
         | paginate: { itemsPerPage: 10, currentPage: p, totalItems: total }
     "
   >
-    <app-author [author]="author"></app-author>
+    <app-author [author]="author" [component]="'auth'"></app-author>
   </span>
 </div>
 <div style="text-align: center">
