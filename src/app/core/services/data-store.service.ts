@@ -10,7 +10,7 @@ export class DataStoreService {
 
   constructor() {}
 
-  getCart() {
+  getAuthors() {
     this.authorFromLocalStorage = JSON.parse(
       localStorage.getItem('cartItems')!
     );

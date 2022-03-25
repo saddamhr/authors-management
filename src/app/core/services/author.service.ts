@@ -9,20 +9,14 @@ import { environment } from 'src/environments/environment';
   providedIn: 'root'
 })
 export class AuthorService {
-
-  // getConfig() {
-  //   return this.http.get<Config>(this.configUrl)
-  //     .pipe(
-  //       catchError(this.handleError)
-  //     );
-  // }
-
   constructor(private http: HttpClient) { }
-  // https://api.quotable.io/authors?limit=10&skip=20
 
-  // fetchAuthors(limit:number, skip:number):Observable<Author[]> {
-  // fetchAuthors(limit:number, skip:number) {
+  // baseUrl = environment.URL;
+
+
+  // SERVICE METHOD: to fetch all author from backend server 
   fetchAuthors(limit:number, skip:number) {
+    // let url = `${this.baseUrl}${ApiPaths.}`;
     return this.http.get<Data>(`${environment.backedServer}authors?/limit=${limit}&skip=${skip}`).pipe(
       retry(1),
       catchError((err) => {
