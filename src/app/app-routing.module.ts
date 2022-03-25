@@ -5,7 +5,15 @@ import { AuthorsComponent } from './features/components/authors/authors.componen
 
 const routes: Routes = [
   { path: '', component: AuthorsComponent },
-  { path: 'favorite-authors', component: FavoriteAuthorsComponent },
+  // Lazy loaded route,
+  {
+    path: '',
+    component: FavoriteAuthorsComponent,
+    loadChildren: () =>
+      import('../app/features/features.module').then(
+        (module) => module.FeaturesModule
+      ),
+  },
 ];
 
 @NgModule({

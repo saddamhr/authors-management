@@ -12,12 +12,16 @@ import { Injectable, NgZone } from '@angular/core';
 export class SnackbarService {
   horizontalPosition: MatSnackBarHorizontalPosition = 'start';
   verticalPosition: MatSnackBarVerticalPosition = 'bottom';
+
   constructor(private _snackBar: MatSnackBar, private zone: NgZone) {}
 
+  // SERVICE METHOD: to raise success snackbar
+  // success(message: string, type:string) {
   success(message: string) {
     this._snackBar.open(message, 'Splash', {
       horizontalPosition: this.horizontalPosition,
-      verticalPosition: this.verticalPosition, duration: 5000
+      verticalPosition: this.verticalPosition,
+      duration: 5000, panelClass: ['red-snackbar'],
     });
   }
 }

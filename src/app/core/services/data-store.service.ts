@@ -1,3 +1,4 @@
+import { SnackbarService } from './snackbar.service';
 import { Author } from './../model/author.model';
 import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
@@ -8,31 +9,35 @@ import { BehaviorSubject } from 'rxjs';
 export class DataStoreService {
   authorFromLocalStorage: Author[] = [];
 
-  constructor() {}
+  constructor(private _snackbarService: SnackbarService) {}
 
+  // SERVICE METHOD: to get all author from local storage
   getAuthors() {
-    this.authorFromLocalStorage = JSON.parse(
-      localStorage.getItem('cartItems')!
-    );
+    this.authorFromLocalStorage = JSON.parse(localStorage.getItem('authors')!);
     if (this.authorFromLocalStorage === null) {
       this.authorFromLocalStorage = [];
     }
     return this.authorFromLocalStorage;
   }
 
+  // SERVICE METHOD: add author to the local storage
   addFavoriteAuthors(author: Author) {
     let j = 0;
 
-    // get current cart
-    this.authorFromLocalStorage = JSON.parse(
-      localStorage.getItem('cartItems')!
-    );
+    // get currently added author from local storage
+    this.authorFromLocalStorage = JSON.parse(localStorage.getItem('authors')!);
 
+    // null case check
     if (this.authorFromLocalStorage === null) {
       this.authorFromLocalStorage = [];
     }
+
+    // check author already added or not
     for (j = 0; j < this.authorFromLocalStorage.length; j++) {
       if (author._id === this.authorFromLocalStorage[j]._id) {
+        this._snackbarService.success(
+          `Author ${author.name} already added to the favorite list! `
+        );
         break;
       } else {
         continue;
@@ -44,16 +49,15 @@ export class DataStoreService {
     }
 
     localStorage.setItem(
-      'cartItems',
+      'authors',
       JSON.stringify(this.authorFromLocalStorage)
     );
   }
 
+  // SERVICE METHOD: to remove a author from local storage
   removeAuthor(authorId: string) {
-    const items = JSON.parse(localStorage.getItem('cartItems')!);
-    const filtered = items.filter((item:any) => item._id !== authorId);
-    localStorage.setItem('cartItems', JSON.stringify(filtered));
-
-
+    const items = JSON.parse(localStorage.getItem('authors')!);
+    const filtered = items.filter((item: any) => item._id !== authorId);
+    localStorage.setItem('authors', JSON.stringify(filtered));
   }
 }

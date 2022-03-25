@@ -4,6 +4,7 @@ import { AuthorsComponent } from './components/authors/authors.component';
 import { FavoriteAuthorsComponent } from './components/favorite-authors/favorite-authors.component';
 import { SharedModule } from '../shared/shared.module';
 import { NgxPaginationModule } from 'ngx-pagination';
+import { FavoriteAuthorsRoutingModule } from './components/favorite-authors/favorite-authors-routing.module';
 
 
 
@@ -20,7 +21,8 @@ import { NgxPaginationModule } from 'ngx-pagination';
   imports: [
     CommonModule,
     SharedModule,
-    NgxPaginationModule
+    NgxPaginationModule,
+    FavoriteAuthorsRoutingModule
   ]
 })
 export class FeaturesModule { }
